@@ -24,9 +24,11 @@ Decryption:
     --decrypt, -d
     --no-mdc-error
     --no-crc-error
-    --allow-multiple-messages
     --ignore-time-conflict
     --ignore-valid-from
+    --skip-verify
+    --try-secret-key
+    --try-all-secrets
 
 Encryption:
 
@@ -38,8 +40,7 @@ Encryption:
     --throw-key-ids
     --for-your-eyes-only
     --set-filename
-    --default-key
-    --default-recipient-self
+    --local-user, -u
 
 Both:
 
@@ -52,5 +53,9 @@ Both:
     --debug
     --debug-all
 
+The meaning of each of these options is the same as defined in the gpg manual.
 Any option not on the above whitelist is ignored. Note that it is not currently
 possible to use a different keyring for encryption than for decryption.
+
+Also note that it is not possible (unlike gpg) to specify multiple flags in
+a single word, e.g. `-sa`. Each flag must be given separately, i.e. `-s -a`.

@@ -11,20 +11,25 @@ E_OPTS=()
 # Attempt to distribute command-line options to the appropriate process(es)
 while [[ -n $1 ]]; do
     case $1 in
-        --ignore-mdc-error|--ignore-crc-error|--allow-multiple-messages|--ignore-time-conflict|--ignore-valid-from)
+        --ignore-mdc-error|--ignore-crc-error|--ignore-time-conflict|--ignore-valid-from|--skip-verify|--try-all-secrets)
             # Decryption options that take no arguments
             D_OPTS+=("$1")
+            ;;
+        --try-secret-key)
+            # Decryption options that take arguments
+            D_OPTS+=("$1" "$2")
+            shift
             ;;
         --decrypt|-d)
             # Override the decryption command (e.g. to read from a file)
             D_COMMAND=("$1" "$2")
             shift
             ;;
-        --sign|-s|--armor|-a|--throw-key-ids|--for-your-eyes-only|--default-recipient-self)
+        --sign|-s|--armor|-a|--throw-key-ids|--for-your-eyes-only)
             # Encryption options that take no arguments
             E_OPTS+=("$1")
             ;;
-        --recipient|-r|--hidden-recipient|-R|--output|-o|--set-filename|--default-key)
+        --recipient|-r|--hidden-recipient|-R|--output|-o|--set-filename|--local-user|-u)
             # Encryption options that take arguments
             E_OPTS+=("$1" "$2")
             shift
