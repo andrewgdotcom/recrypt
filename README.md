@@ -12,8 +12,6 @@ was encrypted with obsolete options, so that it can be safely used in future.
 By default, input and output are STDIN and STDOUT respectively, although these
 can be overridden with the standard GnuPG options "-d" and "-o".
 
-A debug log is printed on STDERR.
-
 GPG_OPTIONS is a list of GnuPG command-line options that will be passed to the
 decryption and/or encryption processes. Since the majority of GnuPG options
 apply only to either decryption or encryption, this normally does what one
