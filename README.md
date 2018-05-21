@@ -5,9 +5,12 @@ Command line toolkit to re-encrypt PGP data
 
 Usage: quick-recrypt [ GPG_OPTIONS ]
 
-Recrypt an OpenPGP-encrypted file or stream to a new recipient. By default,
-input and output are STDIN and STDOUT respectively, although these can be
-overridden with the standard GnuPG options "-d" and "-o".
+Recrypt an OpenPGP-encrypted file or stream to a given recipient(s), using
+current OpenPGP defaults. This is particularly useful for migrating data that
+was encrypted with obsolete options, so that it can be safely used in future.
+
+By default, input and output are STDIN and STDOUT respectively, although these
+can be overridden with the standard GnuPG options "-d" and "-o".
 
 A debug log is printed on STDERR.
 
@@ -18,6 +21,7 @@ expects. Only a subset of GnuPG options are supported:
 
 Decryption:
 
+    --decrypt, -d
     --no-mdc-error
     --no-crc-error
     --allow-multiple-messages
