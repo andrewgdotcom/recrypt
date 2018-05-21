@@ -3,7 +3,7 @@
 # A quick and dirty recryptor tool
 # It does not handle user interaction except via the agent
 
-OPTS=("--batch" "--status-fd" "2")
+OPTS=("--batch")
 D_COMMAND=("-d" "-")
 D_OPTS=()
 E_OPTS=()
@@ -34,11 +34,11 @@ while [[ -n $1 ]]; do
             E_OPTS+=("$1" "$2")
             shift
             ;;
-        --debug-all|--no-default-keyring)
+        --debug-all|--no-default-keyring|--quiet|-q|--verbose|-v)
             # General options that take no arguments
             OPTS+=("$1")
             ;;
-        --debug-level|--debug|--keyring|--secret-keyring|--homedir|--options)
+        --debug-level|--debug|--keyring|--secret-keyring|--homedir|--options|--status-fd)
             # General options that take arguments
             OPTS+=("$1" "$2")
             shift

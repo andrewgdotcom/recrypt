@@ -44,6 +44,9 @@ Encryption:
 
 Both:
 
+    --quiet, -q
+    --verbose, -v
+    --status-fd
     --no-default-keyring
     --keyring
     --secret-keyring
