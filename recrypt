@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+# parse command line flags
+
+# open gpg coprocess for input
+
+# read metadata via IN_STDERR
+
+# typical transcript:
+#
+# /\[GNUPG:\] ENC_TO ([[:digit:]a-fA-F]+) ([[:digit:]]+) ([[:digit:]]+)/ # $subkey_id, $x, $y
+# need to test to see if any of these subkeys is available
+# do we encrypt to all of them by default, or just our own?
+# /\[GNUPG:\] KEY_CONSIDERED ([[:digit:]a-fA-F]+) ([[:digit:]]+)/ # $primkey_id, $e
+# /\[GNUPG:\] NO_SECKEY ([[:digit:]a-fA-F]+)/ # $subkey_id
+# etc. etc.
+# /\[GNUPG:\] BEGIN_DECRYPTION/
+# Is it good enough to start coprocess here? Do we care about the rest?
+# /\[GNUPG:\] DECRYPTION_INFO ([[:digit:]]+) ([[:digit:]]+)/ # $packet_type, $algorithm
+# /\[GNUPG:\] PLAINTEXT ([[:digit:]]+) ([[:digit:]]+) (.*)/ # $c, $timestamp, $original_filename
+# /\[GNUPG:\] PLAINTEXT_LENGTH ([[:digit:]]+)/ # $plaintext_length
+# /\[GNUPG:\] DECRYPTION_OKAY/
+# /\[GNUPG:\] GOODMDC/
+# /\[GNUPG:\] END_DECRYPTION/
+
+# open gpg coprocess for output
+
+# copy IN_STDOUT to OUT_STDIN
+
+# read remaining transcript and log
